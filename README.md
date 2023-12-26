@@ -37,6 +37,7 @@ catcode `\_=12
 [PowerShell - SecureString challenge](https://www.root-me.org/fr/Challenges/App-Script/Powershell-SecureString)
 
 ### Payload
-```([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.Int
+```Powershell
+([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.Int
 eropServices.Marshal]::SecureStringToBSTR($SecurePassword)))
 ```
