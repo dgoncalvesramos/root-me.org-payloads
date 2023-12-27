@@ -45,3 +45,17 @@ catcode `\_=12
 ([System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.Int
 eropServices.Marshal]::SecureStringToBSTR($SecurePassword)))
 ```
+
+## Powershell - Basic jail
+[PowerShell - Basic jail challenge](https://www.root-me.org/fr/Challenges/App-Script/Powershell-Basic-jail)
+
+### Payload
+Just type 
+```Powershell
+Content
+```
+Then in the prompter type
+```bash 
+./.passwd
+```
+The password would be prompt 
