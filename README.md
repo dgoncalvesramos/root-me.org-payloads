@@ -58,4 +58,4 @@ Then in the prompter type
 ```bash 
 ./.passwd
 ```
-The password would be prompt 
+Then enter and the password will be prompt 
