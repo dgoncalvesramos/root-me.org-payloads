@@ -58,7 +58,7 @@ Then in the prompter type
 ```bash 
 ./.passwd
 ```
-Then enter and the password will be prompt 
+Then enter and the flag will be prompt 
 
 ### Bash - quoted expression injection
 [Bash - quoted expression injection](https://www.root-me.org/fr/Challenges/App-Script/Bash-quoted-expression-injection)
