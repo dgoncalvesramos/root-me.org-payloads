@@ -124,7 +124,7 @@ We can see that there is a subfolder /passwd. We do the same command in the /pas
 print_r(glob(implode(array(base64_decode(L2NoYWxsZW5nZS9hcHAtc2NyaXB0L2NoMTMvcGFzc3dkLy4q)))))
 ```
 
-[Glob command in php](https://image.noelshack.com/fichiers/2024/01/2/1704201285-screenshot-from-2024-01-02-14-14-02.png)
+![Glob command in php](https://image.noelshack.com/fichiers/2024/01/2/1704201285-screenshot-from-2024-01-02-14-14-02.png)
 
 We can see that there is a .passwd file so we just now have to open with the following command:
 
