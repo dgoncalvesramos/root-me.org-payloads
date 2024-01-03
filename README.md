@@ -113,7 +113,7 @@ We can see that [base64](https://www.php.net/manual/en/function.base64-decode.ph
 
 ![Glob command in php](https://image.noelshack.com/fichiers/2024/01/1/1704120632-screenshot-from-2024-01-01-15-50-21.png)
 
-In this command we pass the value of '/challenge/app-script/ch13/*' encoded in base64 to an array then with the function implode we split the array into a string and we do a glob.
+In this command we pass the value of '/challenge/app-script/ch13/*' encoded in base64 to an array then with the function implode we join the array into a string and we do a glob.
 The result of this command will be :
 ```php 
 print_r(glob(/challenge/app-script/ch13/*,GLOB_ONLYDIR));
