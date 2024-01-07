@@ -146,7 +146,7 @@ First create a file in /tmp folder :
 ```bash
 vi /tmp/pwned.sh
 ```
-Then give them the rights :
+Then give it the rights :
 ```bash
 chmod u+x /tmp/pwned.sh
 ```
