@@ -190,8 +190,7 @@ while :; do
 done
 ```
 
-This scipts do a infinite loop and monitor the directories created by the challenge script, when he found a directory in /tmp/$PPID/$PID that matchs he creates a symlink to $HOME/.passwd until the directory is deleted
-in order to do a race condition exploit on this command of the challenge script :
+This scipts do a infinite loop and monitor the directories created by the challenge script, when he found a directory in /tmp/$PPID/$PID that matchs he creates a symlink to $HOME/.passwd that has the name of a 4 octects file until the directory is deleted in order to do a race condition exploit on this command of the challenge script :
 ```bash 
 find "$temp_dir" -type f -size 4c -exec cat {} + 
 ```
